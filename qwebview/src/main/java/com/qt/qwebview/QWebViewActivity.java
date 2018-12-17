@@ -35,9 +35,6 @@ public class QWebViewActivity extends Activity implements IFileChooser {
         }
     }
 
-    Intent[] intentArray;
-    Intent takePictureIntent;
-
     @Override
     public void showFileChooser(ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         this.filePathCallback = filePathCallback;
@@ -53,6 +50,16 @@ public class QWebViewActivity extends Activity implements IFileChooser {
         } catch (Exception e) {
             QToast("打开文件失败");
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (qWebView != null && qWebView.canGoBack()) {
+            qWebView.goBack();
+            return;
+        }
+        super.onBackPressed();
+
     }
 
     public void QToast(String msg) {

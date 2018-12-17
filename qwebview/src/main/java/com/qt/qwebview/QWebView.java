@@ -33,7 +33,7 @@ public class QWebView extends WebView {
     private void init(Context context) {
         this.webViewClient = new QWebViewClient(this);
         this.webChromeClient = new QWebChromeClient(this);
-//        this.downloadListener = new NinjaDownloadListener(this.context);
+//        this.downloadListener = newDownloadListener(this.context);
 
         setWebViewClient(webViewClient);
         setWebChromeClient(webChromeClient);

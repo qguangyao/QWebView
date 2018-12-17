@@ -23,6 +23,7 @@ public class QWebViewClient extends WebViewClient {
     private QWebView qWebView;
     private Context context;
     public QWebViewClient(QWebView qWebView){
+        super();
         this.qWebView = qWebView;
         context = qWebView.getContext();
     }
