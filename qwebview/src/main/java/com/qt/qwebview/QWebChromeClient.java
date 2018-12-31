@@ -28,10 +28,12 @@ public class QWebChromeClient extends WebChromeClient {
     @Override
     public void onShowCustomView(View view, WebChromeClient.CustomViewCallback callback) {
         super.onShowCustomView(view, callback);
+        qWebView.getCustomView().onShowCustomView(view,callback);
     }
 
     @Override
     public void onHideCustomView() {
+        qWebView.getCustomView().onHideCustomView();
         super.onHideCustomView();
     }
 
