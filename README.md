@@ -17,7 +17,7 @@ a basic webView <br>
         }
     }
 
-### in your xml file
+### in your layout file
     
     <?xml version="1.0" encoding="utf-8"?>
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
