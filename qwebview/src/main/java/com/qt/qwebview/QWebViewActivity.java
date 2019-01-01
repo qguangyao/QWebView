@@ -82,15 +82,6 @@ public class QWebViewActivity extends Activity implements IFileChooser,ICustomVi
     }
 
     @Override
-    public void onBackPressed() {
-        if (qWebView!= null && qWebView.canGoBack()){
-            qWebView.goBack();
-            return;
-        }
-        super.onBackPressed();
-    }
-
-    @Override
     public void onShowCustomView(View view, WebChromeClient.CustomViewCallback callback) {
         if (view == null) {
             return;

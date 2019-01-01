@@ -6,9 +6,7 @@ import com.qt.qwebview.QWebView;
 import com.qt.qwebview.QWebViewActivity;
 
 public class MainActivity extends QWebViewActivity {
-
     QWebView webView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,5 +14,6 @@ public class MainActivity extends QWebViewActivity {
         webView = findViewById(R.id.mian_web_view);
         setqWebView(webView);
         webView.loadUrl("https://www.baidu.com");
+//        webView.loadUrl("file:///android_asset/qecharts.html");
     }
 }
