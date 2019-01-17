@@ -34,6 +34,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.contains('release')) {
+                def fileName = "QWebView-${variant.versionName}.apk"
+                outputFileName = fileName;
+            } else if (outputFile != null && outputFile.name.contains('debug')) {
+                def fileName = "QWebView-${variant.versionName}.apk"
+                outputFileName = fileName;
+
+            }
+        }
+    }
 }
 
 dependencies {

@@ -18,8 +18,7 @@
         android:theme="@style/AppTheme">
         <activity android:name="com.qt.simple.MainActivity"
             android:configChanges="mcc|mnc|orientation|keyboardHidden|screenSize"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
-            >
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
