@@ -23,6 +23,7 @@ public class QWebChromeClient extends WebChromeClient {
     @Override
     public void onReceivedTitle(WebView view, String title) {
         super.onReceivedTitle(view, title);
+        qWebView.getTitleReceiver().onReceivedTitle(view,title);
     }
 
     @Override

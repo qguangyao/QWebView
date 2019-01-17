@@ -9,6 +9,7 @@ import android.os.Build;
 import android.view.View;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -16,8 +17,9 @@ import android.widget.VideoView;
 import com.qt.qwebview.customview.FullScreenHolder;
 import com.qt.qwebview.interfaces.ICustomView;
 import com.qt.qwebview.interfaces.IFileChooser;
+import com.qt.qwebview.interfaces.ITitleReceiver;
 
-public class QWebViewActivity extends Activity implements IFileChooser,ICustomView {
+public class QWebViewActivity extends Activity implements IFileChooser,ICustomView,ITitleReceiver {
 
     public static final int REQUEST_FILE = 0x101;
 
@@ -36,6 +38,7 @@ public class QWebViewActivity extends Activity implements IFileChooser,ICustomVi
         if (this.qWebView != null) {
             this.qWebView.setFileChooser(this);
             this.qWebView.setCustomView(this);
+            this.qWebView.setTitleReceiver(this);
         }
     }
 
@@ -151,13 +154,18 @@ public class QWebViewActivity extends Activity implements IFileChooser,ICustomVi
         return true;
     }
 
-    private void setCustomFullscreen(boolean fullscreen) {
+    protected void setCustomFullscreen(boolean fullscreen) {
         View decorView = getWindow().getDecorView();
         if (fullscreen) {
             decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
         } else {
             decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
         }
+    }
+
+    @Override
+    public void onReceivedTitle(WebView view, String title) {
+
     }
 
     private class VideoCompletionListener implements MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener {

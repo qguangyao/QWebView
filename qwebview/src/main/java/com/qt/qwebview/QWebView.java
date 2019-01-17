@@ -8,11 +8,13 @@ import android.webkit.WebView;
 
 import com.qt.qwebview.interfaces.ICustomView;
 import com.qt.qwebview.interfaces.IFileChooser;
+import com.qt.qwebview.interfaces.ITitleReceiver;
 
 public class QWebView extends WebView {
 
     private IFileChooser fileChooser;
     private ICustomView customView;
+    private ITitleReceiver titleReceiver;
 
     private QWebViewClient webViewClient;
     private QWebChromeClient webChromeClient;
@@ -113,5 +115,13 @@ public class QWebView extends WebView {
 
     public void setCustomView(ICustomView customView) {
         this.customView = customView;
+    }
+
+    public ITitleReceiver getTitleReceiver() {
+        return titleReceiver;
+    }
+
+    public void setTitleReceiver(ITitleReceiver titleReceiver) {
+        this.titleReceiver = titleReceiver;
     }
 }
