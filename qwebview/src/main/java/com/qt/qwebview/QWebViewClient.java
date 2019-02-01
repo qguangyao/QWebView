@@ -66,6 +66,7 @@ public class QWebViewClient extends WebViewClient {
         PackageManager packageManager = context.getPackageManager();
         Intent browseIntent = new Intent(Intent.ACTION_VIEW).setData(parsedUri);
         if (browseIntent.resolveActivity(packageManager) != null) {
+//            packageManager.getApplicationLabel(packageManager.getApplicationInfo(),PackageManager.GET_META_DATA);
             context.startActivity(browseIntent);
             return true;
         }

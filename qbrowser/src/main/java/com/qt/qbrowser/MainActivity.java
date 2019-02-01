@@ -26,15 +26,17 @@ import java.util.Map;
 
 public class MainActivity extends QWebViewActivity {
 
-    QWebView webView;
-    EditText main_address;
-    Button main_go;
-    LinearLayout main_url_layout;
-    DrawerLayout main_drawer;
-    NavigationView navigationView;
-    String homeUtl = "https://www.baidu.com";
+    private QWebView webView;
+    private EditText main_address;
+    private Button main_go;
+    private LinearLayout main_url_layout;
+    private DrawerLayout main_drawer;
+    private NavigationView navigationView;
+    private String homeUtl = "https://www.baidu.com";
+    private long clickTime;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         homeUtl = getHomeUtl();
@@ -160,5 +162,18 @@ public class MainActivity extends QWebViewActivity {
     protected void hideSoftInput() {
         InputMethodManager imManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!webView.canGoBack()) {
+            long current = System.currentTimeMillis();
+            if (current - clickTime > 2000) {
+                QToast("再按一次推出程序");
+                clickTime = current;
+                return;
+            }
+        }
+        super.onBackPressed();
     }
 }
